@@ -5,6 +5,18 @@
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+:root {
+    --text-light-gray: #7c7c7c;
+    --text-dark-gray: #424242;
+    --text-dark: #000;
+    --text-white: #fff;
+
+    --primary-text: #0072ff;
+
+    --primary-button: #0072ff;
+    --primary-button-hover: #005dd7;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -247,9 +259,9 @@ footer {
 }
 
 .text-slide-section {
-    border-top: 1px solid #0072ff;
+    border-top: 1px solid var(--primary-text);
     width: 100%;
-    
+
     & .text-slider-link {
         padding: 48px 0;
         display: flex;
@@ -267,7 +279,7 @@ footer {
         & .text-slide-btn {
             width: 40px;
             height: 40px;
-            background: #0072ff;
+            background: var(--primary-text);
             color: #fff;
             display: flex;
             justify-content: center;
@@ -317,9 +329,264 @@ footer {
 }
 
 .text-slide-section-3 {
-    border-bottom: 1px solid #0072ff;
+    border-bottom: 1px solid var(--primary-text);
 }
 
 .text-slide-section-3 .text-slider-link {
     justify-content: start;
+}
+
+.portfolio-section {
+    padding: 8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.portfolio-title {
+    font-size: 180px;
+    font-weight: 700;
+    letter-spacing: -7px;
+    position: relative;
+}
+
+.portfolio-badge {
+    font-size: 18px;
+    letter-spacing: normal;
+    font-weight: 500;
+    background: #fff9f170;
+    padding: 10px 24px;
+    border-radius: 32px;
+    border: 1px solid #efefefc9;
+    position: absolute;
+    min-width: fit-content;
+    display: flex;
+
+
+    &.web {
+        top: 12px;
+        right: 16%;
+        transform: rotate(-8deg);
+    }
+
+    &.branding {
+        top: 10px;
+        left: -40px;
+        transform: rotate(-16deg);
+    }
+
+    &.marketing {
+        bottom: 13px;
+        left: 46%;
+        transform: translate(-50%) rotate(3deg);
+    }
+}
+
+.contennt-portfolio {
+    font-size: 32px;
+    color: var(--text-dark-gray);
+}
+
+.btn {
+    display: flex;
+    padding: 16px 20px;
+    border-radius: 32px;
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    align-items: center;
+}
+
+.btn::after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-arrow-right'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M5 12l14 0' /%3E%3Cpath d='M13 18l6 -6' /%3E%3Cpath d='M13 6l6 6' /%3E%3C/svg%3E");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: -45px;
+    width: 56px;
+    height: 52px;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+    transition: all ease-in-out 0.3s;
+    padding-top: 4px;
+}
+
+.btn-primary {
+    background: var(--primary-button);
+    color: var(--text-white);
+    border: 1px solid var(--primary-button);
+}
+
+.btn-primary::after {
+    background: var(--primary-button);
+    color: var(--text-white);
+}
+
+.btn:hover {
+    &::after {
+        right: -70px;
+        transform: rotate(15deg);
+        transition: all ease-in-out 0.3s;
+    }
+}
+
+
+/* BrandSlider.css */
+.slider-container {
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    padding: 8rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.slider-track {
+    display: inline-block;
+    white-space: nowrap;
+    transition: transform 0.1s linear;
+}
+
+.slider-row {
+    display: flex;
+    gap: 12px;
+
+}
+
+.table-cell {
+    padding: 32px 48px;
+    border: 1px solid #dee2e6;
+    background: white;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-dark-gray);
+    min-width: 240px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    border-radius: 60px;
+}
+
+.header-cell {
+    background: #e9ecef;
+    font-weight: 700;
+    color: #212529;
+    border-color: #adb5bd;
+}
+
+/* First slider specific styles */
+.slider-1 {
+    animation: slideLeftToRight 30s linear infinite;
+}
+
+.slider-1 .slider-row {
+    animation-direction: normal;
+}
+
+/* Second slider specific styles */
+.slider-2 {
+    animation: slideRightToLeft 30s linear infinite;
+    margin-top: 1px;
+}
+
+.slider-2 .slider-row {
+    animation-direction: reverse;
+}
+
+/* Pause animation on hover */
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+/* Keyframes for sliding */
+@keyframes slideLeftToRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes slideRightToLeft {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Scroll speed modifier */
+.scroll-fast .slider-track {
+    animation-duration: 10s !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .table-cell {
+        padding: 15px 20px;
+        min-width: 150px;
+        font-size: 14px;
+    }
+
+    .slider-1, .slider-2 {
+        animation-duration: 20s;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-cell {
+        padding: 12px 15px;
+        min-width: 120px;
+        font-size: 12px;
+    }
+
+    .slider-container {
+        padding: 20px 0;
+    }
+}
+
+.creative-section {
+    padding: 6rem 0;
+    background-color: #efefefc9;
+}
+
+
+.title-content {
+    text-align: center;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-size: 110px;
+    line-height: 1.4;
+    letter-spacing: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: calc(100% - 100px);
+}
+
+.pills-image {
+    width: 280px;
+    margin: 0 120px;
+    visibility: hidden;
+    transition: all ease-in-out 0.3s;
+}
+
+.creative-section:hover .title-content .pills-image {
+    visibility: visible;
+    width: 280px;
+    transition: all ease-in-out 0.3s;
 }
