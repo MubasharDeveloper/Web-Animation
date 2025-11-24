@@ -6,6 +6,7 @@ import PortfolioSection from './components/PortfolioSection';
 import CreativeSection from './components/CreativeSection';
 import SectionSlider from './components/SectionSlider';
 import BrandSlider from './components/BrandSlider';
+import ClayStockStudio from './components/ClayStockStudio';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <CreativeSection />
       <SectionSlider />
       <BrandSlider />
+      <ClayStockStudio />
     </div>
   )
 }
