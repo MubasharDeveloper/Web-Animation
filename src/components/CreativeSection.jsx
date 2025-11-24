@@ -6,15 +6,25 @@ export default function CreativeSection() {
         <section className="creative-section">
             <h2 className="title-content">
                 We are
-                <img src={image} class="pills-image" alt="" />
+                <div className="creative-image">
+                    <img src={image} class="pills-image" alt="" />
+                </div>
                 Creative thinkers,
-                <img src={image} class="pills-image" alt="" />
+                <div className="creative-image">
+                    <img src={image} class="pills-image" alt="" />
+                </div>
                 Rule Breakers,
-                <img src={image} class="pills-image" alt="" />
+                <div className="creative-image">
+                    <img src={image} class="pills-image" alt="" />
+                </div>
                 Collaburators,
-                <img src={image} class="pills-image" alt="" />
+                <div className="creative-image">
+                    <img src={image} class="pills-image" alt="" />
+                </div>
                 Problem-Solvers
-                <img src={image} class="pills-image" alt="" />
+                <div className="creative-image">
+                    <img src={image} class="pills-image" alt="" />
+                </div>
                 and Boundaryn Pushers
             </h2>
         </section>

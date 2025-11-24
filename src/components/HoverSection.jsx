@@ -1,4 +1,6 @@
 import React from 'react'
+import SlideShowImage from './../assets/images/SideShowImage.png';
+import MarketingImage from './../assets/images/marketing.png';
 
 export default function HoverSection() {
     return (
@@ -6,7 +8,7 @@ export default function HoverSection() {
             <div className="text-slide-section text-slide-section-1">
                 <a href="#" className='text-slider-link'>
                     <span className="text-slide-image">
-                        <img src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=" alt="" />
+                        <img src={SlideShowImage} alt="" />
                     </span>
                     <span className='text-slide-content'>Brand & Strategy</span>
                     <span className="text-slide-btn">
@@ -17,7 +19,7 @@ export default function HoverSection() {
             <div className="text-slide-section text-slide-section-2">
                 <a href="#" className='text-slider-link'>
                     <span className="text-slide-image">
-                        <img src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=" alt="" />
+                        <img src={MarketingImage} alt="" />
                     </span>
                     <span className='text-slide-content'>Campaigns & Marketing</span>
                     <span className="text-slide-btn">
@@ -28,7 +30,7 @@ export default function HoverSection() {
             <div className="text-slide-section text-slide-section-3">
                 <a href="#" className='text-slider-link'>
                     <span className="text-slide-image">
-                        <img src="https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=1024x1024&w=0&k=20&c=z8_rWaI8x4zApNEEG9DnWlGXyDIXe-OmsAyQ5fGPVV8=" alt="" />
+                        <img src={SlideShowImage} alt="" />
                     </span>
                     <span className='text-slide-content'>Websites & Tech Products</span>
                     <span className="text-slide-btn">
