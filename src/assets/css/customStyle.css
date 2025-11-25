@@ -65,6 +65,7 @@
     z-index: 9;
     animation: float-icon 4s ease-in-out infinite;
     animation-delay: 1s;
+    top: 50%;
 }
 
 .left-bottom-card {
@@ -92,6 +93,33 @@
     }
 }
 
+.sideNav{
+    display: flex;
+    position: fixed;
+    top: 70px;
+    left: -300px;
+    height: calc(100vh - 70px);
+    transition: all 0.3s ease-in-out;
+    width: 300px;
+    background-color: #111;
+
+}
+
+.sideNav.open{
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* When supported, prefer this modern relational selector to lock body scroll */
+body:has(.sideNav.open) {
+    overflow: hidden;
+}
+
+/* JS fallback: toggle this class on <body> when sideNav is open */
+.no-scroll {
+    overflow: hidden;
+}
+
 .bottom-navigation {
     display: flex;
     gap: 16px;
@@ -109,15 +137,15 @@
 
 @keyframes float-icon {
     0% {
-        transform: translateY(0) translateX(-50%) rotate(0deg);
+        transform: translateY(calc(-50% + 10px)) translateX(-50%) rotate(0deg);
     }
 
     50% {
-        transform: translateY(-20px) translateX(-50%) rotate(0deg);
+        transform: translateY(calc(-50% - 10px)) translateX(-50%) rotate(0deg);
     }
 
     100% {
-        transform: translateY(0) translateX(-50%) rotate(0deg);
+        transform: translateY(calc(-50% + 10px)) translateX(-50%) rotate(0deg);
     }
 }
 
@@ -834,9 +862,242 @@ footer {
             margin-bottom: 22px;
             max-width: 750px;
 
-            & span{
+            & span {
                 color: var(--text-light-gray);
             }
         }
+    }
+}
+
+/* Navigation Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 999;
+}
+
+.navbar-container {
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-logo:hover {
+    opacity: 0.8;
+}
+
+.navbar-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    & a {
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    & .dot-icon svg {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+.nav-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    & .navbar-button {
+        padding: 10px 20px;
+        border: 3px solid;
+        border-radius: 32px;
+        background: transparent;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    & .sideNavToggle {
+        display: none;
+        cursor: pointer;
+    }
+}
+
+@media(max-width: 992px) {
+    .nav-right .sideNavToggle {
+        display: block;
+    }
+
+    .navbar-list {
+        display: none;
+    }
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.dark-nav {
+    background: #000;
+    color: #fff;
+    border-bottom: 1px solid #272727;
+
+    & .navbar-list a {
+        color: #fff;
+    }
+
+    & .nav-right .navbar-button {
+        border-color: #fff;
+        color: #fff;
+        background-color: #ffffff33;
+    }
+}
+
+/* Page Sections */
+.about-section,
+.services-section {
+    padding: 100px 20px;
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+    background: #fff;
+}
+
+.about-container,
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-section h1,
+.services-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #1a1a2e, #0072ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.services-intro {
+    font-size: 1.2rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.about-grid,
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.about-card,
+.service-card {
+    background: linear-gradient(135deg, rgba(0, 116, 255, 0.05), rgba(0, 180, 216, 0.05));
+    border: 1px solid rgba(0, 116, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    transition: all 0.3s ease;
+}
+
+.about-card:hover,
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 116, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 116, 255, 0.1);
+}
+
+.about-card h3,
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #0072ff;
+}
+
+.about-card p,
+.service-card p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .navbar-logo {
+        font-size: 1.4rem;
+    }
+
+    .nav-menu {
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .about-section h1,
+    .services-section h1 {
+        font-size: 2rem;
+    }
+
+    .about-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
     }
 }
