@@ -9,6 +9,8 @@ import SectionSlider from './../components/SectionSlider';
 import BrandSlider from './../components/BrandSlider';
 import ClayStockStudio from './../components/ClayStockStudio';
 
+import ContactForm from './../components/ContactForm';
+
 export default function Home() {
   return (
     <div className="app">
@@ -21,6 +23,7 @@ export default function Home() {
       <SectionSlider />
       <BrandSlider />
       <ClayStockStudio />
+      <ContactForm />
     </div>
   )
 }

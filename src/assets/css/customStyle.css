@@ -15,6 +15,8 @@
 
     --primary-button: #0072ff;
     --primary-button-hover: #005dd7;
+
+    --dark-button: #000;
 }
 
 * {
@@ -93,7 +95,7 @@
     }
 }
 
-.sideNav{
+.sideNav {
     display: flex;
     position: fixed;
     top: 70px;
@@ -105,7 +107,7 @@
 
 }
 
-.sideNav.open{
+.sideNav.open {
     left: 0;
     transition: all 0.3s ease-in-out;
 }
@@ -505,6 +507,7 @@ footer {
     font-weight: 400;
     position: relative;
     align-items: center;
+    text-decoration: none;
 }
 
 .btn::after {
@@ -530,6 +533,17 @@ footer {
 
 .btn-primary::after {
     background: var(--primary-button);
+    color: var(--text-white);
+}
+
+.btn-dark {
+    background: var(--dark-button);
+    color: var(--text-white);
+    border: 1px solid var(--dark-button);
+}
+
+.btn-dark::after {
+    background: var(--dark-button);
     color: var(--text-white);
 }
 
@@ -1099,5 +1113,66 @@ footer {
     .about-grid,
     .services-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+.contact-form-section {
+    padding: 5rem 0;
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+
+    & .input-group {
+        display: flex;
+        flex-direction: row;
+        padding: 56px 0;
+        cursor: pointer;
+        border-bottom: 1px solid #c8c8c8;
+        align-items: flex-start;
+
+        &.last {
+            border-bottom: none;
+        }
+
+        & label {
+            font-size: 16px;
+            margin-top: 24px;
+            font-weight: 500;
+            max-width: 250px;
+            width: 100%;
+        }
+
+        & input, textarea {
+            padding: 0px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+            font-size: 68px;
+            line-height: 1;
+            width: 100%;
+
+            &:focus {
+                border-color: var(--primary-text);
+                outline: none;
+            }
+        }
+
+        & textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+    }
+
+    & .action-button {
+        display: flex;
+        align-items: center;
+        padding-top: 50px;
+        padding-left: 250px;
     }
 }
